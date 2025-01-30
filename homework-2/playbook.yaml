@@ -1,5 +1,6 @@
-- name: Deploy a web container with hot reload
+- name: Start a web server
+  become: yes
   hosts: webservers
-  tasks:
-    - name: Start the container
-      shell: docker-compose up -d
+  roles:
+    - core
+    - deploy

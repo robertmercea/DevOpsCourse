@@ -1,0 +1,22 @@
+- name: Update pacman
+  community.general.pacman:
+    upgrade: yes
+  when: ansible_os_family == "Archlinux"
+
+- name: Update apt
+  apt:
+    upgrade: yes
+  when: ansible_os_family == "Debian"
+
+- name: Update dnf
+  dnf:
+    upgrade: yes
+  when: ansible_os_family == "RedHat"
+
+- name: Install dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - docker
+    - docker-compose
