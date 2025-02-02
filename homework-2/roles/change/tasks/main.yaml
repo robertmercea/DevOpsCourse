@@ -5,10 +5,9 @@
     - Print page content
 
 - name: Change page content
-  community.docker.docker_container_copy_into:
-    container: homework-2-server-1
-    container_path: /usr/share/nginx/html/index.html
-    path: ./web/index2.html
+  copy:
+    src:  web/index2.html
+    dest: web/index.html
   notify:
     - Get current page content
     - Print page content
