@@ -1,0 +1,10 @@
+- name: Get current page content
+  uri:
+    url: http://localhost:8080
+    return_content: yes
+  connection: local
+  register: site_content
+
+- name: Print page content
+  debug:
+    var: site_content.content

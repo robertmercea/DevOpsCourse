@@ -4,3 +4,4 @@
   roles:
     - core
     - deploy
+    - change
